@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { fileURLToPath, URL } from 'url';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
@@ -30,6 +31,10 @@ export default defineConfig({
     environment("all", { prefix: "CANISTER_" }),
     environment("all", { prefix: "DFX_" }),
   ],
+  test: {
+    environment: 'jsdom',
+    setupFiles: 'src/setupTests.js',
+  },
   resolve: {
     alias: [
       {
